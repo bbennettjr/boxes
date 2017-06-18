@@ -6,16 +6,19 @@ import { Meteor } from 'meteor/meteor';
 // UI components
 import AppContainer from '../imports/ui/components/app/app_container.jsx';
 
+// Router
+import { renderRoutes } from '../imports/startup/client/router.js';
+
 // Accounts
 import '../imports/startup/client/accounts-config.js';
 
 // Main
 import './main.html';
 
-Meteor.startup(function() {
+Meteor.startup(() => {
 	// render to the root div
 	ReactDOM.render(
-		<AppContainer />,
+		renderRoutes(),
 		document.getElementById('root'),
 		(error, result) => {
 			if (error) console.log('Error is: ' + error.reason);
