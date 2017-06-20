@@ -8,7 +8,8 @@ export const renderRoutes = () => {
 	return (
 		<Router>
 			<div>
-				<Route path="/" component={Welcome} />
+				<Route exact path="/" component={Welcome} />
+				<Route path="/home" component={Home} />
 			</div>
 		</Router>
 	);
