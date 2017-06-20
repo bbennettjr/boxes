@@ -23,7 +23,7 @@ export default class Header extends React.Component {
 								<span className="icon-bar" />
 								<span className="icon-bar" />
 							</button>
-							<a className="navbar-brand" href="#">Boxes</a>
+							<a className="navbar-brand" href="/">Boxes</a>
 						</div>
 						<div
 							className="collapse navbar-collapse"
@@ -31,7 +31,7 @@ export default class Header extends React.Component {
 						>
 							<ul className="nav navbar-nav">
 								<li className="active">
-									<a href="/">Home</a>
+									<a href="/home">Home</a>
 								</li>
 							</ul>
 							<ul className="nav navbar-nav navbar-right">
