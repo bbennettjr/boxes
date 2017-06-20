@@ -10,18 +10,18 @@ export const renderRoutes = () => {
 			<div>
 				<Route exact path="/" component={Welcome} />
 				<Route path="/home" component={Home} />
+				<Route path="/app" component={AppContainer} />
 			</div>
 		</Router>
 	);
 };
 
 const Welcome = ({ match }) => {
-	const url = `${match.url}home`;
 	return (
 		<div>
 			<h1>Welcome</h1>
-			<Link to={url}>Home</Link>
-			<Route path={url} component={Home} />
+			<Link to={`${match.url}home`}>Home</Link>
+			<Link to={`${match.url}app`}>AppContainer</Link>
 		</div>
 	);
 };
@@ -30,6 +30,17 @@ const Home = ({ match }) => {
 	return (
 		<div>
 			<h1>Home</h1>
+			<Link to="/">Welcome</Link>
+			<Link to="/app">AppContainer</Link>
+		</div>
+	);
+};
+const Page = ({ match }) => {
+	return (
+		<div>
+			<h1>Page</h1>
+			<Link to="/">Welcome</Link>
+			<Link to="/home">Home</Link>
 		</div>
 	);
 };

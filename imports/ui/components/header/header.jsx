@@ -1,6 +1,6 @@
-import React from 'react';
-import NewBox from './new_box/new_box.js';
-import AccountsWrapper from '../accounts/accounts_wrapper.js';
+import React from "react";
+import NewBox from "./new_box/new_box.js";
+import AccountsWrapper from "../accounts/accounts_wrapper.js";
 
 export default class Header extends React.Component {
 	render() {
@@ -31,7 +31,7 @@ export default class Header extends React.Component {
 						>
 							<ul className="nav navbar-nav">
 								<li className="active">
-									<a href="#">Home</a>
+									<a href="/">Home</a>
 								</li>
 							</ul>
 							<ul className="nav navbar-nav navbar-right">
