@@ -1,13 +1,34 @@
 import React from "react";
-import { Router, Route } from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // route components
 import AppContainer from "../../ui/components/app/app_container.jsx";
 
-const browserHistory = createBrowserHistory();
+export const renderRoutes = () => {
+	return (
+		<Router>
+			<div>
+				<Route path="/" component={Welcome} />
+			</div>
+		</Router>
+	);
+};
 
-export const renderRoutes = () =>
-	<Router history={browserHistory}>
-		<Route path="/test" component={AppContainer} />
-	</Router>;
+const Welcome = ({ match }) => {
+	const url = `${match.url}home`;
+	return (
+		<div>
+			<h1>Welcome</h1>
+			<Link to={url}>Home</Link>
+			<Route path={url} component={Home} />
+		</div>
+	);
+};
+
+const Home = ({ match }) => {
+	return (
+		<div>
+			<h1>Home</h1>
+		</div>
+	);
+};

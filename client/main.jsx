@@ -1,30 +1,27 @@
 // Atmosphere and NPM
-import React from 'react';
-import ReactDOM, { render } from 'react-dom';
-import { Meteor } from 'meteor/meteor';
-
-// UI components
-import AppContainer from '../imports/ui/components/app/app_container.jsx';
+import React from "react";
+import ReactDOM, { render } from "react-dom";
+import { Meteor } from "meteor/meteor";
 
 // Router
-import { renderRoutes } from '../imports/startup/client/router.js';
+import { renderRoutes } from "../imports/startup/client/router.js";
 
 // Accounts
-import '../imports/startup/client/accounts-config.js';
+import "../imports/startup/client/accounts-config.js";
 
 // Main
-import './main.html';
+import "./main.html";
 
 Meteor.startup(() => {
-	// render to the root div
-	ReactDOM.render(
-		renderRoutes(),
-		document.getElementById('root'),
-		(error, result) => {
-			if (error) console.log('Error is: ' + error.reason);
-			if (result) console.log('Result is ' + result);
-		}
-	);
+  // render to the root div
+  ReactDOM.render(
+    renderRoutes(),
+    document.getElementById("root"),
+    (error, result) => {
+      if (error) console.log("Error is: " + error.reason);
+      if (result) console.log("Result is " + result);
+    }
+  );
 });
 
 /*
