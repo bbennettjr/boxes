@@ -1,14 +1,13 @@
 // Atmosphere and NPM
-import React from 'react';
-import PropTypes from 'prop-types';
-import { createContainer } from 'meteor/react-meteor-data';
+import React from "react";
+import PropTypes from "prop-types";
 
 // Collections
-import { Boxes } from '../../../api/boxes/boxes.js';
+import { Boxes } from "../../../api/boxes/boxes.js";
 
 // UI components
-import Header from '../header/header.jsx';
-import { PageList } from '../page/page_list.jsx';
+import Header from "../header/header.jsx";
+import { PageList } from "../page/page_list.jsx";
 
 export default class App extends React.Component {
 	render() {
@@ -22,5 +21,5 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-	boxes: PropTypes.array.isRequired,
+	boxes: PropTypes.array.isRequired
 };
