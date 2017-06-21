@@ -1,15 +1,15 @@
 // Atmosphere and NPM
-import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
+import { Meteor } from "meteor/meteor";
+import { createContainer } from "meteor/react-meteor-data";
 
 // UI components
-import App from './app.jsx';
+import App from "./app.jsx";
 
 // Collections
-import { Boxes } from '../../../api/boxes/boxes.js';
+import { Boxes } from "../../../api/boxes/boxes.js";
 
 // prettier-ignore
 export default AppContainer = createContainer(() => {
 	Meteor.subscribe('boxes');
-	return {boxes: Boxes.find({}).fetch()};
+	return {boxes: Boxes.find({}, {sort: {createdAt: -1}}).fetch()};
 }, App);
