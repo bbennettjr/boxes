@@ -1,38 +1,46 @@
 import React from "react";
+import { Panel, Button, Glyphicon } from "react-bootstrap";
 
 export class Box extends React.Component {
-	renderHeart() {
+	header() {
 		return (
-			<a
-				className="btn pull-left"
-				href="#"
-				role="button"
-				style={{ position: "relative", top: "-15px" }}
-				onClick={""}
-			>
-				<span
-					className="glyphicon glyphicon-heart"
-					aria-hidden="true"
-				/>
-			</a>
+			<h5>
+				{`Box created on ${this.props.createdAt.toLocaleDateString()}`}
+				<div className="pull-right">
+					<small>
+						By: {this.props.email}
+					</small>
+				</div>
+			</h5>
 		);
 	}
-	renderX() {
+	content() {
 		return (
-			<a
-				className="btn pull-right"
-				href="#"
-				role="button"
-				style={{ position: "relative", top: "-15px" }}
-				onClick={this.removeBox.bind(this)}
-			>
-				<span
-					className="glyphicon glyphicon-remove"
-					aria-hidden="true"
+			<div style={{ position: "relative" }}>
+				<Button className="pull-left">
+					<Glyphicon glyph="heart" />
+				</Button>
+				<div
+					style={{
+						backgroundColor: this.props.color,
+						position: "absolute",
+						minWidth: "80%",
+						height: "34px",
+						left: "10%",
+						right: "10%",
+						borderRadius: "5px"
+					}}
 				/>
-			</a>
+				<Button
+					className="pull-right"
+					onClick={this.removeBox.bind(this)}
+				>
+					<Glyphicon glyph="remove" />
+				</Button>
+			</div>
 		);
 	}
+	like() {}
 	removeBox(event) {
 		event.preventDefault();
 		Meteor.call("box.remove", this.props.boxId, (error, result) => {
@@ -42,27 +50,10 @@ export class Box extends React.Component {
 	}
 	render() {
 		return (
-			<div className="panel panel-default">
-				<div className="panel-heading">
-					<h5>
-						{`Box created on ${this.props.createdAt.toLocaleDateString()}`}
-						<div className="pull-right">
-							<small>
-								By: {this.props.email}
-							</small>
-						</div>
-					</h5>
-				</div>
-				<div
-					className="panel-body"
-					style={{
-						backgroundColor: this.props.color,
-						width: "100%",
-						height: "25px"
-					}}
-				>
-					{this.renderHeart()}{this.renderX()}
-				</div>
+			<div>
+				<Panel header={this.header()}>
+					{this.content()}
+				</Panel>
 			</div>
 		);
 	}
