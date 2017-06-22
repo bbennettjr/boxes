@@ -1,8 +1,16 @@
 import React from "react";
-import { Grid } from "react-bootstrap";
-import { Box } from "../box/box.jsx";
+import { Meteor } from "meteor/meteor";
 
-export class PageList extends React.Component {
+// UI
+import { Box } from "../box/box.jsx";
+import { Grid } from "react-bootstrap";
+
+// Data
+import { Boxes } from "../../../api/boxes/boxes.js";
+import PropTypes from "prop-types";
+import { createContainer } from "meteor/react-meteor-data";
+
+class PageList extends React.Component {
 	renderBoxes() {
 		let boxes = this.props.boxes;
 		return boxes.map(box => {
@@ -25,3 +33,12 @@ export class PageList extends React.Component {
 		);
 	}
 }
+
+PageList.propTypes = {
+	boxes: PropTypes.array.isRequired
+};
+
+export default createContainer(({ match }) => {
+	Meteor.subscribe("boxes", match);
+	return { boxes: Boxes.find({}).fetch() };
+}, PageList);

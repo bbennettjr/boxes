@@ -3,8 +3,12 @@ import React from "react";
 import ReactDOM, { render } from "react-dom";
 import { Meteor } from "meteor/meteor";
 
-// Router
-import { renderRoutes } from "../imports/startup/client/router.js";
+// App + Router
+// import AppContainer from "../imports/ui/components/app/app.jsx";
+import { App } from "../imports/ui/components/app/app.jsx";
+// import { default as AppTest } from "../imports/ui/components/app/app.jsx";
+// import { AppContainer } from "../imports/ui/components/app/app_container.jsx";
+// import { renderRoutes } from "../imports/startup/client/router.js";
 
 // Accounts
 import "../imports/startup/client/accounts-config.js";
@@ -14,14 +18,10 @@ import "./main.html";
 
 Meteor.startup(() => {
   // render to the root div
-  ReactDOM.render(
-    renderRoutes(),
-    document.getElementById("root"),
-    (error, result) => {
-      if (error) console.log("Error is: " + error.reason);
-      if (result) console.log("Result is " + result);
-    }
-  );
+  ReactDOM.render(App(), document.getElementById("root"), (error, result) => {
+    if (error) console.log("Error is: " + error.reason);
+    if (result) console.log("Result is " + result);
+  });
 });
 
 /*

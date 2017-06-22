@@ -2,16 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // route components
-import AppContainer from "../../ui/components/app/app_container.jsx";
+import AppContainer from "../../ui/components/app/app.jsx";
 
 export const renderRoutes = () => {
 	return (
 		<Router>
 			<div>
 				<Route exact path="/" component={Welcome} />
-				<Route path="/home" component={Home}>
-					<Route component={Page} />
-				</Route>
+				<Route path="/home" component={Home} />
 				<Route path="/app" component={AppContainer} />
 
 			</div>
