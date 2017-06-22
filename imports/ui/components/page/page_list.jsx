@@ -1,5 +1,6 @@
-import React from 'react';
-import { Box } from '../box/box.jsx';
+import React from "react";
+import { Grid } from "react-bootstrap";
+import { Box } from "../box/box.jsx";
 
 export class PageList extends React.Component {
 	renderBoxes() {
@@ -18,9 +19,9 @@ export class PageList extends React.Component {
 	}
 	render() {
 		return (
-			<div className="container">
+			<Grid>
 				{this.renderBoxes()}
-			</div>
+			</Grid>
 		);
 	}
 }
