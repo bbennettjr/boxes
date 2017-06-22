@@ -14,7 +14,10 @@ export default class App extends React.Component {
 		return (
 			<div>
 				<Header />
-				<PageList boxes={this.props.boxes} />
+				{this.props.ready
+					? <PageList boxes={this.props.boxes} />
+					: <h1>LOADING</h1>}
+
 			</div>
 		);
 	}

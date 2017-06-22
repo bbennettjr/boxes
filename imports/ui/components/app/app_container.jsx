@@ -9,7 +9,7 @@ import App from "./app.jsx";
 import { Boxes } from "../../../api/boxes/boxes.js";
 
 // prettier-ignore
-export default AppContainer = createContainer(() => {
-	Meteor.subscribe('boxes');
-	return {boxes: Boxes.find({}, {sort: {createdAt: -1}}).fetch()};
+export default AppContainer = createContainer(({...rest}) => {
+	const sub = Meteor.subscribe('boxes');
+	return {boxes: Boxes.find({}, {sort: {createdAt: -1}}).fetch(), ready:sub.ready()};
 }, App);
